@@ -1,0 +1,35 @@
+{% from "../../components/marker/marker.nunj" import marker %}
+{% from "../../components/tooltip/tooltip.nunj" import tooltip %}
+
+{% macro field(props) %}
+	<div class="field{% if props.className %} {{ props.className }}{% endif %}">
+
+		<label class="field__label{% if props.labelClassName %} {{ props.labelClassName }}{% endif %}" for="{{ props.inputId }}">
+			<span>{{ props.labelText }}</span>
+
+			{% if props.marker %}
+				<span class="field__label-marker-container" tabindex="0">
+					{{ marker ({
+							className: props.markerClassName,
+							markerText: props.markerText
+						}) }}
+
+					{% if props.tooltip %}
+						{{ tooltip ({
+							className: props.tooltipClassName,
+							tooltipText: props.tooltipText
+						}) }}
+					{% endif %}
+				</span>
+			{% endif %}
+		</label>
+
+		<input
+			class="field__input{% if props.inputClassName %} {{ props.inputClassName }}{% endif %}"
+			id="{{ props.inputId }}"
+			type="{{ props.inputType }}"
+			aria-label="{{ props.inputAriaLabel }}"
+			autocomplete="off"
+			placeholder="{{ props.inputPlaceholder }}">
+	</div>
+{% endmacro %}

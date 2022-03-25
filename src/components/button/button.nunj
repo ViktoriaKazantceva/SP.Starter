@@ -1,8 +1,30 @@
+{% from "../../components/icon/icon.nunj" import icon %}
+{% from "../../components/marker/marker.nunj" import marker %}
+
 {% macro button(props) %}
-<button class="button{% if props.className %} {{ props.className }}{% endif %}">
-	{{ props.children }}
-	{% if props.chevronRight %}
-	<span class="button__chevron-right">&gt;</span>
-	{% endif %}
-</button>
+	<button
+		class="button{% if props.className %} {{ props.className }}{% endif %}"
+		type="{{ props.type }}"
+		{% if props.name %}
+			name="{{ props.name }}"
+		{% endif %}
+		aria-label="{{ props.ariaLabel }}">
+
+		{{ props.children }}
+
+		{% if props.icon %}
+			{{ icon({
+				iconName: props.iconName,
+				className: props.iconClassName,
+				attributes: props.iconAttributes
+			}) }}
+		{% endif %}
+
+		{% if props.marker %}
+			{{ marker ({
+				className: props.markerClassName,
+				markerText: props.markerText
+			}) }}
+		{% endif %}
+	</button>
 {% endmacro %}

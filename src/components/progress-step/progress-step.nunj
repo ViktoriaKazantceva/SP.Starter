@@ -1,0 +1,22 @@
+<div class="progress-step{% if classWrapperProgressStep %} {{ classWrapperProgressStep }}{% endif %}">
+	{% for item in progressStep | reverse %}
+		<input
+			class="progress-step__input visually-hidden"
+			type="radio"
+			name="progress-step"
+			id="progress-step__input-id-{{item.index}}"
+			value={{ item.index }}
+			tabindex="-1"
+			{% if item.text == 'Billing' %} checked {% endif %}>
+		<label
+			class="progress-step__label"
+			for="progress-step__input-id-{{item.index}}">
+			<span class="progress-step__marker">
+				{{ item.index }}
+			</span>
+			<span>
+				{{ item.text }}
+			</span>
+		</label>
+	{% endfor %}
+</div>

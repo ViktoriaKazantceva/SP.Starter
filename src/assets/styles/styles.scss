@@ -1,15 +1,26 @@
 // ======= GLOBAL =======
-@import 'constants';
-@import 'lib/base';
+@import 'normalize';
 @import 'fonts';
-@import 'reset';
+@import 'mixins';
+@import 'functions';
+@import 'colors';
+@import 'variables';
 @import 'global';
 @import 'layout';
-// @import 'controls';
 
 // ======= COMPONENTS =======
 @import '../../components/header/header';
+@import '../../components/menu/menu';
 @import '../../components/button/button';
+@import '../../components/icon/icon';
+@import '../../components/progress-step/progress-step';
+@import '../../components/field/field';
+@import '../../components/credit-card/credit-card';
+@import '../../components/marker/marker';
+@import '../../components/tooltip/tooltip';
+@import '../../components/control/control';
+@import '../../components/table/table';
+@import '../../components/product-card/product-card';
 
 // ======= PAGES =======
-@import 'pages/main';
+@import 'pages/index';

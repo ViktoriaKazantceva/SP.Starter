@@ -1,0 +1,101 @@
+.progress-step {
+	position: relative;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	width: 100%;
+
+	&::after {
+		@include progress-line;
+
+		left: 50%;
+		width: $progress-line-width;
+		background-color: $gray-4;
+		transform: translateX(-50%);
+	}
+
+	&__label {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__marker {
+		@include vertical-align-center;
+
+		z-index: 2;
+		justify-content: center;
+		width: $base * 4;
+		height: $base * 4;
+		margin-bottom: $base * 2;
+		font-size: $base * 2.5;
+		color: $gray-4;
+		background-color: $white;
+		border: 1px solid $gray-4;
+		border-radius: 50%;
+	}
+
+	&__input {
+		&:checked {
+			& ~ .progress-step__label {
+				.progress-step__marker {
+					color: $white;
+					background-color: $blue;
+					border-color: $blue;
+				}
+			}
+
+			& + .progress-step__label {
+				.progress-step__marker {
+					color: $black;
+					background-color: $white;
+					border-color: $blue;
+				}
+
+				&::after {
+					@include progress-line;
+
+					left: $base * 5;
+					z-index: 1;
+					background-color: $blue;
+				}
+			}
+		}
+
+		/* input 4 */
+		&:nth-of-type(1):checked {
+			& + .progress-step__label {
+				&::after {
+					width: $progress-line-width;
+				}
+			}
+		}
+
+		/* input 3 */
+		&:nth-of-type(2):checked {
+			& + .progress-step__label {
+				&::after {
+					width: calc((100% / 3) * 2 - $base * 6);
+				}
+			}
+		}
+
+		/* input 2 */
+		&:nth-of-type(3):checked {
+			& + .progress-step__label {
+				&::after {
+					width: calc(100% / 3);
+				}
+			}
+		}
+
+		/* input 1 */
+		&:nth-of-type(4):checked {
+			& + .progress-step__label {
+				&::after {
+					width: 0;
+				}
+			}
+		}
+	}
+}

@@ -95,6 +95,50 @@ const utils = {
 			number % 100 > 4 && number % 100 < 20 ? 2 : cases[number % 10 < 5 ? number % 10 : 5]
 		];
 	},
+
+	toggleClass(domElement, toggleClassName) {
+		return document.querySelector(domElement).classList.toggle(toggleClassName);
+	},
+
+	addClass(domElement, addClassName) {
+		return document.querySelector(domElement).classList.add(addClassName);
+	},
+
+	removeClass(domElement, removeClassName) {
+		return document.querySelector(domElement).classList.remove(removeClassName);
+	},
+
+	formatСurrency(value) {
+		return `$ ${value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ' ')}`;
+	},
+
+	fieldLength(item) {
+		const inputWidth = item.value.length;
+		if (inputWidth > 3) {
+			item.style.maxWidth = `calc(${inputWidth} * 10px)`;
+		} else {
+			item.style.maxWidth = '32px';
+		}
+	},
+
+	removeItem(item, domElement) {
+		return item.target.closest(domElement).remove();
+	},
+
+	setSubtotal(value) {
+		const tableSubtotal = document.querySelector('.table_td-subtotal');
+
+		tableSubtotal.textContent = utils.formatСurrency(value);
+		tableSubtotal.dataset.value = value;
+	},
+
+	setTotal(valueSubtotal) {
+		const TAX = Number(document.querySelector('.table__td-tax').dataset.value);
+		const SHIPPING = Number(document.querySelector('.table__td-shipping').dataset.value);
+		const total = document.querySelector('.table__td-total');
+
+		total.textContent = utils.formatСurrency(valueSubtotal + TAX + SHIPPING);
+	},
 };
 
 export default utils;

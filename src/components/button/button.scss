@@ -1,35 +1,140 @@
 .button {
-	@extend .transition-active;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid rgba(#000, 0.3);
-	height: 54px;
-	font-weight: 700;
-	cursor: pointer;
-	font-size: 16px;
-	letter-spacing: -0.5px;
-	padding: 1px 20px 0;
+	@include clean-button;
+	@include focus-link;
+	@include vertical-align-center;
 
-	&:hover {
-		background-color: rgba(#000, 0.3);
-		color: rgba(#000, 0.8);
-		transition: none;
+	position: relative;
+	justify-content: center;
+	line-height: 1.2;
+	border: 1px solid transparent;
+	border-radius: $border-radius-sm;
+
+	&__icon_delete {
+		fill: $gray-1;
+		transition: fill $default-transition-duration ease;
 	}
 
-	&:active {
-		background-color: rgba(#000, 0.25);
-		border-color: rgba(#000, 0.25);
-
-		.button__chevron-right {
-			transform: translateX(1px);
-			transition: none;
+	&:hover {
+		.button__icon_delete {
+			fill: $black;
 		}
 	}
 
-	&__chevron-right {
-		margin-left: 5px;
-		transition: transform 0.1s ease-out,
-			fill $default-transition-duration $default-transition-function;
+	&:not(:disabled):not(.disabled) {
+		cursor: pointer;
+	}
+
+	&_md {
+		padding: $base;
+	}
+
+	&_lg {
+		padding: $base * 3 $base * 7.5;
+		font-size: $base * 3.5;
+		line-height: 1;
+	}
+
+	&_white {
+		color: $black;
+		background-color: $white;
+		border-color: $gray-1;
+		transition: border-color $default-transition-duration ease;
+
+		&:hover {
+			border-color: $black;
+		}
+	}
+
+	&_blue {
+		color: $white;
+		background-color: $blue;
+		border-color: $blue;
+		transition: box-shadow $default-transition-duration ease;
+
+		&:hover {
+			box-shadow: inset $box-shadow;
+		}
+	}
+
+	&_toggle-menu {
+		width: $base * 8.5;
+		height: $base * 8.5;
+
+		span,
+		span::before,
+		span::after {
+			width: $base * 6.5;
+			height: 2px;
+			background-color: $gray-1;
+			transition: all 0.3s;
+		}
+
+		span {
+			position: relative;
+			display: block;
+
+			&::before,
+			&::after {
+				position: absolute;
+				left: 0;
+				content: '';
+			}
+
+			&::before {
+				top: -$base * 2;
+			}
+
+			&::after {
+				top: $base * 2;
+			}
+		}
+
+		&:hover {
+			span,
+			span::before,
+			span::after {
+				background-color: $black;
+			}
+		}
+
+		@media (min-width: $breakpoint-lg-max) {
+			display: none;
+		}
+	}
+
+	/* stylelint-disable no-descending-specificity */
+	&_toggle-menu_active {
+		span {
+			background-color: transparent;
+		}
+
+		span::before,
+		span::after {
+			background-color: $gray-1;
+		}
+
+		span::before {
+			transform: rotate(45deg) translate(6px, 5.5px);
+		}
+
+		span::after {
+			transform: rotate(-45deg) translate(6px, -5.5px);
+		}
+
+		&:hover {
+			span {
+				background-color: transparent;
+			}
+		}
+	}
+
+	&_basket-marker {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 1;
+		transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.29, 1.14);
+		transform: scale(1) translate(25%, -25%);
+		transform-origin: 75% 0;
 	}
 }

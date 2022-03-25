@@ -1,0 +1,74 @@
+<section class="credit-card{% if classWrapperCreditCart %} {{ classWrapperCreditCart }}{% endif %}">
+	<h3 class="visually-hidden">Credit Card</h3>
+	{{ field ({
+		className: 'credit-card__field-name-card',
+		labelText: 'Name on card',
+		inputId: 'input-card-name',
+		inputType: 'text',
+		inputAriaLabel: 'Name on card',
+		inputPlaceholder: 'Name on card'
+	}) }}
+
+	{{ field ({
+		className: 'credit-card__field-namber-card',
+		labelText: 'Card number',
+		inputId: 'input-card-number__id-1',
+		inputType: 'number',
+		inputAriaLabel: 'First four digits of the card number',
+		inputPlaceholder: ''
+	}) }}
+
+	{{ field ({
+		className: 'credit-card__field-namber-card',
+		labelClassName: 'visually-hidden',
+		labelText: 'Second four digits of the card number',
+		inputId: 'input-card-number__id-2',
+		inputType: 'number',
+		inputAriaLabel: 'Second four digits of the card number',
+		inputPlaceholder: ''
+	}) }}
+
+	{{ field ({
+		className: 'credit-card__field-namber-card',
+		labelClassName: 'visually-hidden',
+		labelText: 'Third four digits of the card number',
+		inputId: 'input-card-number__id-3',
+		inputType: 'number',
+		inputAriaLabel: 'Third four digits of the card number',
+		inputPlaceholder: ''
+	}) }}
+
+	{{ field ({
+		className: 'credit-card__field-namber-card',
+		labelClassName: 'visually-hidden',
+		labelText: 'Fourth four digits of the card number',
+		inputId: 'input-card-number__id-4',
+		inputType: 'number',
+		inputAriaLabel: 'Fourth four digits of the card number',
+		inputPlaceholder: ''
+	}) }}
+
+	{{ field ({
+		className: 'credit-card__field-expire-date',
+		labelText: 'Expire date',
+		inputId: 'input-card-date',
+		inputType: 'number',
+		inputAriaLabel: 'Expire date',
+		inputPlaceholder: ''
+	}) }}
+
+	{{ field ({
+		className: 'credit-card__field-cvv-code',
+		labelText: 'CVV code',
+		inputId: 'input-card-code',
+		inputType: 'number',
+		inputAriaLabel: 'CVV code',
+		inputPlaceholder: '',
+		marker: true,
+		markerClassName: 'marker_gray marker_cursor',
+		markerText: '?',
+		tooltipClassName: 'field__tooltip',
+		tooltip: true,
+		tooltipText: 'The CVV/CVC code (Card Verification Value/Code) is located on the back of your credit/debit card on the right side of the white signature strip.'
+	}) }}
+</section>

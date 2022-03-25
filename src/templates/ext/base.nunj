@@ -1,24 +1,35 @@
 {% from "./_head-scripts.nunj" import headScripts %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<!-- Front-end by sborkaproject.com -->
-		<meta charset="utf-8" />
-		<title>{% block title %}Project{% endblock %}</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+		<meta name="description" content="This is a test task for HTML, CSS and JS. It is made in the form of a basket, where you can change the quantity of goods.">
+		<title>
+			{% block title %}SP.shop{% endblock %}
+		</title>
+
+		<link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="any">
+		<link rel="icon" href="/assets/images/favicon/favicon.svg" type="image/svg+xml">
+
+		{# if there is a requirement that you can add a web page
+		as a shortcut to the main screen of a mobile phone,
+		you need to add apple-touch-icon.png and a manifest.webmanifest #}
 
 		{{ headScripts() }}
 
 		{% block stylesheets %}
-			<link rel="stylesheet" href="assets/css/styles.css?hash" />
+			<link rel="stylesheet" href="assets/css/styles.css?hash"/>
 		{% endblock stylesheets %}
 	</head>
 	<body>
 
-		<div class="wrapper">
-			{% block content %}
-			{% endblock content %}
-		</div>
+		{% include '../../components/header/header.nunj' %}
+
+		<main class="main">
+			{% block content %}{% endblock content %}
+		</main>
 
 		{% block scripts %}
 			<script src="assets/js/bundle.js?hash"></script>

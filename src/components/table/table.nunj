@@ -1,0 +1,25 @@
+{% macro table(props) %}
+	<table class="table">
+		<caption class="visually-hidden">Cost table</caption>
+		<tbody>
+			<tr>
+				<td>Subtotal</td>
+				<td class="table__td-currency table_td-subtotal"></td>
+			</tr>
+			<tr class="table__tr-additional-expenses">
+				<td>Tax</td>
+				<td class="table__td-currency table__td-tax money-format" data-value="{{ props.tableTax }}">{{ props.tableTax }}</td>
+			</tr>
+			<tr class="table__tr-additional-expenses">
+				<td>Shipping</td>
+				<td class="table__td-currency table__td-shipping money-format" data-value="{{ props.tableShipping }}">{{ props.tableShipping }}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td class="table__td-title">Total</td>
+				<td class="table__td-currency table__td-total"></td>
+			</tr>
+		</tfoot>
+	</table>
+{% endmacro %}

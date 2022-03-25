@@ -1,0 +1,39 @@
+.tooltip {
+	position: absolute;
+	top: calc(100% + $base * 2);
+	left: -$base * 3;
+	z-index: 1;
+
+	&__container {
+		box-sizing: border-box;
+		display: block;
+		padding: $base * 2 $base * 3;
+		font-size: $base * 3;
+		font-weight: $fw-regular;
+		line-height: 1.4;
+		color: $black;
+		background-color: $white;
+		border: $border;
+		border-radius: $border-radius-sm;
+
+		&::after {
+			position: absolute;
+			top: -$base * 1.75;
+			left: $base * 3;
+			width: $base * 5;
+			height: $base * 2;
+			content: '';
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10' width='20' height='10'%3E %3Cpolygon points='0,10 10,1 20,10' fill='%23fff'/%3E %3Cpolyline points='1,9 10,1 19,9' stroke='%23CFCFCF' stroke-width='1' fill='none'/%3E %3C/svg%3E");
+			background-repeat: no-repeat;
+			background-size: 100%;
+		}
+	}
+
+	&_width {
+		width: $base * 50;
+
+		@media (min-width: $breakpoint-sm-max) {
+			width: $base * 80;
+		}
+	}
+}

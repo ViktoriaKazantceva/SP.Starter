@@ -1,0 +1,7 @@
+{% macro tooltip(props) %}
+<span class="tooltip tooltip_width{% if props.className %} {{ props.className }}{% endif %}">
+    <span class="tooltip__container">
+			{{ props.tooltipText }}
+    </span>
+</span>
+{% endmacro %}

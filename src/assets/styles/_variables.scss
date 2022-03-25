@@ -1,0 +1,26 @@
+$default-transition-duration: 0.3s;
+$default-transition-function: ease-in-out;
+$default-transition: $default-transition-duration $default-transition-function;
+$reverse-transition-duration: 0.25s;
+$reverse-transition-function: ease-in;
+$reverse-transition: $reverse-transition-duration $reverse-transition-function;
+$base: rem(4px);
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+$breakpoint-sm-min: 576px;
+$breakpoint-sm-max: $breakpoint-sm-min + 1px;
+$breakpoint-md-min: 768px;
+$breakpoint-md-max: $breakpoint-md-min + 1px;
+$breakpoint-lg-min: 992px;
+$breakpoint-lg-max: $breakpoint-lg-min + 1px;
+$breakpoint-xl-min: 1200px;
+$breakpoint-xl-max: $breakpoint-xl-min + 1px;
+$breakpoint-xxl-min: 1400px;
+$breakpoint-xxl-max: $breakpoint-xxl-min + 1px;
+$border-radius-sm: 3px;
+$border: 1px solid $gray-1;
+$outline: 2px solid $gray-1;
+$box-shadow: 0 0 $base * 8 0 rgba($black, 0.19);
+$header-height: $base * 20 + rem(1px); /* 81px */
+$progress-line-width: calc(100% - $base * 12.5);

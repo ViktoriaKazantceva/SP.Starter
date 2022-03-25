@@ -1,8 +1,7 @@
 {
-	"extends": ["stylelint-config-prettier"],
+	"extends": ["stylelint-config-prettier", "stylelint-config-standard-scss", "stylelint-config-recess-order"],
 	"plugins": ["stylelint-prettier"],
 	"rules": {
-		"prettier/prettier": true,
 		"indentation": "tab",
 		"string-quotes": "single",
 		"color-hex-case": "upper",
@@ -15,6 +14,7 @@
 		"function-url-quotes": "always",
 		"media-feature-parentheses-space-inside": "never",
 		"media-feature-colon-space-before": "never",
-		"media-feature-colon-space-after": "always"
+		"media-feature-colon-space-after": "always",
+		"selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(_([a-z0-9]+-?)+){0,2}$|^Mui.*$"
 	}
 }

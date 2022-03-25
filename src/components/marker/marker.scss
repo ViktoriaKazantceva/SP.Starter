@@ -1,0 +1,24 @@
+.marker {
+	@include vertical-align-center;
+
+	justify-content: center;
+	min-width: $base * 3;
+	aspect-ratio: 1/1;
+	padding: $base * 0.5;
+	font-size: $base * 2.5;
+	border-radius: 50%;
+
+	&_blue {
+		color: $white;
+		background-color: $blue;
+	}
+
+	&_gray {
+		color: $black;
+		background-color: $gray-4;
+	}
+
+	&_cursor {
+		cursor: pointer;
+	}
+}

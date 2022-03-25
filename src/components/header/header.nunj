@@ -1,5 +1,67 @@
-<div class="header">
-	<div class="container">
-		{{ menu() }}
-	</div>
-</div>
+<header class="header">
+	<h1 class="visually-hidden">SP.shop is a clothing store</h1>
+	<a class="header__logo" href="/" aria-label="Go to homepage">
+		{{ icon({
+			iconName: 'logo',
+			className: 'icon',
+			attributes: 'viewBox="0 0 89 32" style="width: 89px; height: 32px; fill: rgb(0, 0, 0);"'
+		}) }}
+	</a>
+
+	{{ menu ({
+		className: 'header__menu'
+	}) }}
+
+	<ul class="header__button-list">
+		<li>
+			<form action="#" class="header__form-search" id="form-search" name="form-search" tabindex="0">
+				{{ field ({
+					className: 'field_search overflow-hidden',
+					labelClassName: 'visually-hidden',
+					labelText: 'Search',
+					inputClassName: 'field__input_search',
+					inputId: 'input-search',
+					inputType: 'text',
+					inputAriaLabel: 'Search',
+					inputPlaceholder: 'Search...'
+				}) }}
+
+				{{ button({
+					className: 'form__button-search button_md header__button',
+					type: 'button',
+					name: 'form-search',
+					ariaLabel: 'Open search field',
+					icon: true,
+					iconName: 'search',
+					iconClassName: 'icon',
+					iconAttributes: 'viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: rgb(0, 0, 0);"'
+				}) }}
+			</form>
+		</li>
+		<li>
+
+			{{ button({
+				className: 'button_basket button_md header__button header__button_basket',
+				type: 'button',
+				ariaLabel: 'Open basket panel',
+				icon: true,
+				iconName: 'basket',
+				iconClassName: 'icon',
+				iconAttributes: 'viewBox="0 0 24 21" style="width: 24px; height: 24px; fill: rgb(0, 0, 0);"',
+				marker: true,
+				markerClassName: 'marker_blue button_basket-marker',
+				markerText: ''
+			}) }}
+		</li>
+		<li>
+
+			{{ button({
+				className: 'button_toggle-menu header__button',
+				type: 'button',
+				ariaLabel: 'Open main navigation',
+				children: '<span></span>',
+				icon: falce
+			}) }}
+		</li>
+	</ul>
+</header>

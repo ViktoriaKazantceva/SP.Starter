@@ -1,9 +1,8 @@
-.wrapper {
-	position: relative;
-}
-
 .container {
-	max-width: 980px;
-	margin: auto;
-	box-sizing: content-box;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	overflow: hidden;
+	background-color: $white;
 }

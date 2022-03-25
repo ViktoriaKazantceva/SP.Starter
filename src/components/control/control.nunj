@@ -1,0 +1,31 @@
+{% macro control(props) %}
+	{% if props.controlCheckbox %}
+		<div class="control control__checkbox{% if props.controlClassName %} {{ props.controlClassName }}{% endif %}">
+			<input
+				class="control__input visually-hidden"
+				type="checkbox" id="{{ props.controlId }}"
+				aria-label="{{ props.controlAriaLabel }}"
+				{% if props.controlChecked %} checked {% endif %}>
+			<label
+				class="control__label{% if props.controlLabelClassName %} {{ props.controlLabelClassName }}{% endif %}"
+				for="{{ props.controlId }}">
+				{{ props.controlText }}
+			</label>
+		</div>
+	{% elif props.controlRadio %}
+		<div class="control control__radio{% if props.controlClassName %} {{ props.controlClassName }}{% endif %}">
+			<input
+				class="control__input visually-hidden"
+				type="radio" id="{{ props.controlId }}"
+				name="{{ props.controlName }}"
+				aria-label="{{ props.controlAriaLabel }}"
+				value="{{ props.controlValue }}"
+				{% if props.controlChecked %} checked {% endif %}>
+			<label
+				class="control__label"
+				for="{{ props.controlId }}">
+				{{ props.controlText }}
+			</label>
+		</div>
+	{% endif %}
+{% endmacro %}

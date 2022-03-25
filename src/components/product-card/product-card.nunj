@@ -1,0 +1,57 @@
+{% from "../../components/button/button.nunj" import button %}
+
+{% macro productCard(props) %}
+	{% for item in proguctList %}
+		<div class="product-card">
+
+			{# Don't use a Saas mixin because product images are important content on the page, not decorative #}
+			{% set src = 'assets/images/sprites/' + item.path + '.webp' %}
+			{% set srcset = 'assets/images/sprites/' + item.path + '@2x.webp' %}
+			<img class="product-card__image" src={{ src }}  srcset="{{ srcset }} 2x"  width="100" height="100" alt="{{ item.description }}">
+
+			<a class="product-card__title" href="#" aria-label="Go to {{ item.name }} page">{{ item.name }}</a>
+
+			<div class="product-card__control">
+				{{ button({
+					className: 'button_minus button_md',
+					type: 'button',
+					ariaLabel: 'Remove one product',
+					icon: true,
+					iconName: 'minus',
+					iconClassName: 'icon',
+					iconAttributes: 'viewBox="0 0 21 20" style="width: 20px; height: 20px; fill: rgb(0, 0, 0);"'
+				}) }}
+
+				<input
+					class="product-card__amount"
+					type="number"
+					aria-label="Quantity of this product"
+					value="{{ item.value }}"
+					data-price="{{ item.price }}"
+					readonly>
+
+				{{ button({
+					className: 'button_plus button_md',
+					type: 'button',
+					ariaLabel: 'Add one product',
+					icon: true,
+					iconName: 'plus',
+					iconClassName: 'icon',
+					iconAttributes: 'viewBox="0 0 21 20" style="width: 20px; height: 20px; fill: rgb(0, 0, 0);"'
+				}) }}
+
+				<span class="product-card__price money-format">{{ item.price }}</span>
+
+			</div>
+			{{ button({
+				className: 'button_delete button_md product-card__button-delete',
+				icon: true,
+				type: 'button',
+				ariaLabel: 'Remove product from basket',
+				iconName: 'delete',
+				iconClassName: 'icon button__icon_delete',
+				iconAttributes: 'viewBox="0 0 19 18" style="width: 20px; height: 20px;"'
+			}) }}
+		</div>
+	{% endfor %}
+{% endmacro %}

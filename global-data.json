@@ -1,15 +1,27 @@
 {
 	"menuItems": [
 		{
-			"name": "Menu Item 1",
+			"name": "Women's",
 			"path": "#"
 		},
 		{
-			"name": "Menu Item 2",
+			"name": "Men's",
 			"path": "#"
 		},
 		{
-			"name": "Menu Item 3",
+			"name": "Home",
+			"path": "#"
+		},
+		{
+			"name": "Travel",
+			"path": "#"
+		},
+		{
+			"name": "Beauty",
+			"path": "#"
+		},
+		{
+			"name": "Sale",
 			"path": "#"
 		}
 	],
@@ -21,6 +33,47 @@
 		{
 			"title": "Item 2",
 			"text": "Desc 2"
+		}
+	],
+	"progressStep": [
+		{
+			"index": 1,
+			"text": "Account"
+		},
+		{
+			"index": 2,
+			"text": "Shipping"
+		},
+		{
+			"index": 3,
+			"text": "Billing"
+		},
+		{
+			"index": 4,
+			"text": "Review"
+		}
+	],
+	"proguctList": [
+		{
+			"name": "Amet minim mollit non deserunt ullamco est sit",
+			"path": "jacket",
+			"description": "Yellow jacket with blue hood",
+			"value": "1",
+			"price": "525"
+		},
+		{
+			"name": "Ametminimmollitnondeseruntullamcoestsit",
+			"path": "sneakers",
+			"description": "Blue sneakers with orange and white soles",
+			"value": "1",
+			"price": "300"
+		},
+		{
+			"name": "Glimpse Alaska’s seldom-seen marine life alongside our undersea specialist, and listen to communication among whales with the ship’s hydrophone.",
+			"path": "cats",
+			"description": "Big picture with cats",
+			"value": "2",
+			"price": "1000"
 		}
 	]
 }

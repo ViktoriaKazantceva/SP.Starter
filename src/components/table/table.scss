@@ -1,0 +1,17 @@
+.table {
+	width: 100%;
+	border-collapse: collapse;
+
+	td {
+		padding: $base * 2 0;
+	}
+
+	&__td-currency {
+		text-align: right;
+	}
+
+	&__td-title,
+	&__td-total {
+		@include title;
+	}
+}

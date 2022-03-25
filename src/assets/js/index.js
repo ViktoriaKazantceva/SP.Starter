@@ -1,13 +1,13 @@
-import { gsap } from 'gsap';
+//import { gsap } from 'gsap';
 
 // import { ScrollToPlugin } from 'gsap/ScrollToPlugin.js';
 // gsap.registerPlugin(ScrollToPlugin);
 
-global.gsap = gsap;
+//global.gsap = gsap;
 
-gsap.defaults({
-	overwrite: 'auto',
-});
+// gsap.defaults({
+// 	overwrite: 'auto',
+// });
 
 class ProjectApp {
 	constructor() {
@@ -16,7 +16,7 @@ class ProjectApp {
 		this.classes = {
 			Signal: require('./classes/Signal').default,
 		};
-		this.components = {};
+		this.components = require('./components/init-components').default;
 		this.helpers = {};
 		this.modules = {};
 		document.addEventListener('DOMContentLoaded', () => {

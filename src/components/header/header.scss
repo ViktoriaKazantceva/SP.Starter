@@ -1,4 +1,51 @@
 .header {
-	padding: 20px 0;
-	background: #ccc;
+	@include vertical-align-center;
+
+	justify-content: space-between;
+	padding: $base * 5 $base * 7.5;
+	border-bottom: $border;
+
+	&__logo {
+		@include focus-link;
+
+		order: 1;
+	}
+
+	&__button-list {
+		@include clean-list;
+		@include vertical-align-center;
+
+		order: 2;
+
+		@media (min-width: $breakpoint-lg-max) {
+			order: 3;
+		}
+	}
+
+	&__button {
+		margin-left: $base * 4;
+	}
+
+	&__button_basket {
+		@media (min-width: $breakpoint-lg-max) {
+			pointer-events: none;
+		}
+	}
+
+	&__menu {
+		order: 3;
+
+		@media (min-width: $breakpoint-lg-max) {
+			order: 2;
+		}
+	}
+
+	&__form-search {
+		@include vertical-align-center;
+
+		&:focus,
+		&:focus-visible {
+			outline: none;
+		}
+	}
 }

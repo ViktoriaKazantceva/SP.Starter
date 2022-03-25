@@ -3,71 +3,113 @@
 {% from "../../components/menu/menu.nunj" import menu %}
 {% from "../../components/button/button.nunj" import button %}
 {% from "../../components/icon/icon.nunj" import icon %}
-
-{# Пример расширения существующего блока #}
-{# Например можно использовать для добавления уникальных тайтлов для каждой страницы #}
-{# {% block title %}Home / {{ super() }}{% endblock title %} #}
+{% from "../../components/field/field.nunj" import field %}
+{% from "../../components/control/control.nunj" import control %}
+{% from "../../components/table/table.nunj" import table %}
+{% from "../../components/product-card/product-card.nunj" import productCard %}
 
 {% block content %}
-
-	{% include '../../components/header/header.nunj' %}
-
 	<div class="container">
+		<div class="container-left-block">
 
-		<div style="padding:20px 0;">
-			{{ button({
-				className: '',
-				children: 'Buy something',
-				chevronRight: true
-			}) }}
-		</div>
+			{% set classWrapperProgressStep = "container-left-block__progress-step" %}
+			{% include '../../components/progress-step/progress-step.nunj' %}
 
-		<div style="padding:20px 0;">
-
-			<h2 style="margin-bottom: 15px;">Пример использования циклов и функции range():</h2>
-
-			<div class="row">
-				{% for i in range(1, 13)  %}
-					<span>{{ i }}</span>
-				{% endfor %}
-			</div>
-
-		</div>
-
-		<div style="padding:20px 0;">
-
-			<h2 style="margin-bottom: 15px;">Пример с переменными:</h2>
-
-			{% for item in someData %}
-				<div style="margin-bottom: 15px;">
-					<h3>{{ item.title }}</h3>
-					<p>{{ item.text }}</p>
+			<form action="#" class="container-left-block__form" id="form-billing" name="form-billing">
+				<h2 class="title">Billing Information</h2>
+				<div class="container-left-block__form-pay">
+					{{ control ({
+					controlRadio: true,
+					controlClassName: 'container-left-block__form-pay-control container-left-block__form-pay-card',
+					controlId: 'input-pay-card',
+					controlText: 'Pay with Credit Card',
+					controlName: 'control-pay',
+					controlAriaLabel: 'Pay with Credit Card',
+					controlValue: 'card',
+					controlChecked: true
+				}) }}
+					{{ control ({
+					controlRadio: true,
+					controlId: 'input-pay-pal',
+					controlText: icon ({ iconName: 'paypal', className: 'icon', attributes: 'viewBox="0 0 85 23" style="width: 85px; height: 23px;"' }),
+					controlName: 'control-pay',
+					controlAriaLabel: 'Pay with PayPal',
+					controlValue: 'payPal'
+				}) }}
 				</div>
-			{% endfor %}
 
+				{% set classWrapperCreditCart = "container-left-block__credit-cart" %}
+				{% include '../../components/credit-card/credit-card.nunj' %}
+
+				<span class="container-left-block__pay-pal hidden">Pay with PayPal</span>
+
+				<div class="container-left-block__form-card-information">
+					{{ control ({
+					controlClassName: 'container-left-block__form-card-information-control',
+					controlCheckbox: true,
+					controlId: 'input-save-card',
+					controlLabelClassName: 'control__label_gray',
+					controlText: 'Save information of this credit card',
+					controlAriaLabel: 'Save information of this credit card'
+				}) }}
+					{{ control ({
+					controlCheckbox: true,
+					controlId: 'input-accept-terms',
+					controlLabelClassName: 'control__label_gray',
+					controlText: '<span>I accept the <i>terms and comditions</i> and the <i>Privacy Policies</i></span>',
+					controlAriaLabel: 'I accept the terms and comditions and the Privacy Policies'
+				}) }}
+				</div>
+
+				<div class="container-left-block__form-button">
+					{{ button({
+					className: 'button_lg button_white',
+					type: 'button',
+					ariaLabel: 'Go to the previous step',
+					children: 'Back'
+				}) }}
+					{{ button({
+					className: 'button_lg button_blue',
+					type: 'submit',
+					name: 'form-billing',
+					ariaLabel: 'Pay and go to next step',
+					children: 'Check Out'
+				}) }}
+				</div>
+			</form>
 		</div>
 
-		{# Пример с функциями #}
-		<p style="margin-bottom: 20px;">{{ addAwesome('Это текст для теста функций') }}</p>
+		<div class="container-right-block">
+			<section class="container-right-block__basket">
+				<h2 class="title">My basket</h2>
+				{{ productCard() }}
+			</section>
 
-		{% if DEVELOP %}
-			<div class="debug" style="margin-bottom: 20px;">
-				<h2 style="margin-bottom: 15px;">Debug:</h2>
-				<p>Эта информация будет выводиться только при DEVELOP = true.</p>
+			<form action="#" class="container-right-block__promo" id="form-promo-code" name="form-promo-code">
+				<h2 class="title container-right-block__promo-title">Promo code</h2>
+				{{ field ({
+					labelClassName: 'visually-hidden',
+					labelText: 'Promo code',
+					inputId: 'input-promo',
+					inputType: 'text',
+					inputAriaLabel: 'Promo code',
+					inputPlaceholder: 'Promo code'
+				}) }}
+				{{ button({
+					className: 'button_lg button_blue',
+					type: 'button',
+					name: 'form-promo-code',
+					ariaLabel: 'Apply promo code',
+					children: 'Apply'
+				}) }}
+			</form>
+
+			<div class="container-right-block__table">
+				{{ table ({
+				tableTax: '150',
+				tableShipping: '100'
+			})}}
 			</div>
-		{% endif %}
-
-		<div style="padding:20px 0;">
-
-			<h2 style="margin-bottom: 15px;">Пример использования SVG-спрайта</h2>
-
-			{{ icon({
-				iconName: 'chat',
-				className: 'icon',
-				attributes: 'viewBox="0 0 20 20" style="width: 40px; height: 40px; fill: #212121;"'
-			}) }}
-
 		</div>
-
 	</div>
 {% endblock content %}

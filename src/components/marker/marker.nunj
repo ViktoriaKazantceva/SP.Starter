@@ -1,0 +1,5 @@
+{% macro marker(props) %}
+	<span class="marker{% if props.className %} {{ props.className }}{% endif %}">
+		{{ props.markerText }}
+	</span>
+{% endmacro %}
