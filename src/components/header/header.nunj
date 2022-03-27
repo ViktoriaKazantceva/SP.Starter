@@ -4,13 +4,9 @@
 		{{ icon({
 			iconName: 'logo',
 			className: 'icon',
-			attributes: 'viewBox="0 0 89 32" style="width: 89px; height: 32px; fill: rgb(0, 0, 0);"'
+			attributes: 'viewBox="0 0 89 32" style="width: 89px; height: 32px; fill: #000;"'
 		}) }}
 	</a>
-
-	{{ menu ({
-		className: 'header__menu'
-	}) }}
 
 	<ul class="header__button-list">
 		<li>
@@ -34,7 +30,7 @@
 					icon: true,
 					iconName: 'search',
 					iconClassName: 'icon',
-					iconAttributes: 'viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: rgb(0, 0, 0);"'
+					iconAttributes: 'viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: #000;"'
 				}) }}
 			</form>
 		</li>
@@ -47,7 +43,7 @@
 				icon: true,
 				iconName: 'basket',
 				iconClassName: 'icon',
-				iconAttributes: 'viewBox="0 0 24 21" style="width: 24px; height: 24px; fill: rgb(0, 0, 0);"',
+				iconAttributes: 'viewBox="0 0 24 21" style="width: 24px; height: 24px; fill: #000;"',
 				marker: true,
 				markerClassName: 'marker_blue button_basket-marker',
 				markerText: ''
@@ -64,4 +60,8 @@
 			}) }}
 		</li>
 	</ul>
+
+	{{ menu ({
+		className: 'header__menu'
+	}) }}
 </header>

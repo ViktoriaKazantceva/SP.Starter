@@ -19,7 +19,7 @@
 					icon: true,
 					iconName: 'minus',
 					iconClassName: 'icon',
-					iconAttributes: 'viewBox="0 0 21 20" style="width: 20px; height: 20px; fill: rgb(0, 0, 0);"'
+					iconAttributes: 'viewBox="0 0 21 20" style="width: 20px; height: 20px; fill: #000;"'
 				}) }}
 
 				<input
@@ -37,7 +37,7 @@
 					icon: true,
 					iconName: 'plus',
 					iconClassName: 'icon',
-					iconAttributes: 'viewBox="0 0 21 20" style="width: 20px; height: 20px; fill: rgb(0, 0, 0);"'
+					iconAttributes: 'viewBox="0 0 21 20" style="width: 20px; height: 20px; fill: #000;"'
 				}) }}
 
 				<span class="product-card__price money-format">{{ item.price }}</span>
