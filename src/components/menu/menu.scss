@@ -6,8 +6,9 @@
 	left: 0;
 	z-index: -1;
 	overflow-x: hidden;
+	visibility: hidden;
 	background-color: transparent;
-	transition: z-index $reverse-transition;
+	transition: z-index $reverse-transition, visibility $reverse-transition $reverse-transition-duration;
 
 	@media (min-width: $breakpoint-lg-max) {
 		@include visible-block-animation($base * 27, 0, 0); /* 108px = 0.5 * 200px + 0.5 * 16px */
@@ -16,6 +17,7 @@
 		top: auto;
 		z-index: 10;
 		overflow: visible;
+		visibility: visible;
 	}
 
 	&__list {
@@ -70,8 +72,7 @@
 			height: 1px;
 			content: '';
 			background-color: $black;
-			transition: width $default-transition-duration ease,
-				background-color $default-transition-duration ease;
+			transition: width $default-transition-duration ease, background-color $default-transition-duration ease;
 		}
 
 		&:hover {
@@ -91,6 +92,7 @@
 
 	&_active {
 		z-index: 10;
+		visibility: visible;
 		transition: z-index $default-transition;
 
 		.menu__list {
